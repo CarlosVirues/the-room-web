@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THE ROOM — Political Intelligence System</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Space+Grotesk:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <style>
+    /* ── Screen base (same as source) ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #0A0A0A; color: #F5F4F1;
+      font-family: 'Manrope', sans-serif;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    @keyframes roomPulse {
+      0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.35;transform:scale(.65)}
+    }
+    .modal-overlay { display: none !important; }
+
+    /* ── Print styles ───────────────────────────────────────────────────────── */
+    @media print {
+      @page { size: A4 landscape; margin: 0; }
+
+      /* Force all colors & backgrounds */
+      *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      html, body { background: #0A0A0A !important; }
+
+      /* Hide non-content chrome */
+      nav,
+      .modal-overlay,
+      [class*="twk-"],
+      [id="pbar"],
+      canvas { display: none !important; }
+
+      /* ── Hero: replace video with dark static bg ── */
+      #hero {
+        height: auto !important;
+        min-height: unset !important;
+        padding: 80px 100px 80px !important;
+        display: flex !important;
+        grid-template-columns: unset !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        page-break-after: always !important;
+        break-after: page !important;
+      }
+      #hero video,
+      #hero > div[style*="fixed"],
+      #hero > div[style*="absolute"] { display: none !important; }
+
+      /* Force hero text visible without grid */
+      #hero > div:first-child {
+        position: static !important;
+        transform: none !important;
+        opacity: 1 !important;
+        padding: 0 !important;
+      }
+
+      /* ── SIGNALS dashboard: static placeholder ── */
+      #signals-dashboard-wrap {
+        page-break-after: always !important;
+        break-after: page !important;
+        padding: 60px 80px !important;
+        min-height: unset !important;
+      }
+      #signals-dashboard-wrap canvas { display: none !important; }
+      /* The text-based panels (stats, insights, missions) still render */
+      #signals-dashboard-wrap [style*="grid-template-columns: 58%"],
+      #signals-dashboard-wrap [style*="gridTemplateColumns: '58%"] {
+        grid-template-columns: 1fr 1fr !important;
+      }
+
+      /* ── All content sections ── */
+      section[id="problema"],
+      section[id="solucion"],
+      section[id="sistema"],
+      section[id="caso"],
+      section[id="diferenciador"],
+      section[id="entregables"],
+      section[id="escalabilidad"],
+      section[id="equipo"],
+      section[id="cierre"] {
+        page-break-before: always !important;
+        break-before: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        min-height: unset !important;
+        overflow: visible !important;
+      }
+
+      footer {
+        page-break-before: always !important;
+        break-before: page !important;
+      }
+
+      /* ── Typography & layout fixes for print ── */
+      h1, h2, h3 { orphans: 3; widows: 3; }
+
+      /* Remove overflow hidden clipping from sections */
+      main > *, section, [style*="overflow: hidden"] {
+        overflow: visible !important;
+      }
+
+      /* Escalabilidad bars — avoid cut off */
+      #escalabilidad { page-break-inside: avoid !important; break-inside: avoid !important; }
+
+      /* Ensure grid sections don't collapse */
+      [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr 1fr !important; }
+      [style*="grid-template-columns: repeat(4, 1fr)"] { grid-template-columns: repeat(4, 1fr) !important; }
+      [style*="grid-template-columns: repeat(3, 1fr)"] { grid-template-columns: repeat(3, 1fr) !important; }
+
+      /* Remove fixed nav height reservations */
+      main { padding-top: 0 !important; }
+
+      /* Tweaks panel — gone */
+      .twk-panel, [class^="twk-"] { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="room-nav.jsx"></script>
+  <script type="text/babel" src="room-hero.jsx"></script>
+  <script type="text/babel" src="room-dashboard.jsx"></script>
+  <script type="text/babel" src="room-sections.jsx"></script>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    const TWEAK_DEFAULTS = {
+      "accentColor": "#D72631",
+      "bgDark": "#0A0A0A",
+      "heroLayout": "left",
+      "showDataWall": false,
+      "fontStyle": "Space Grotesk"
+    };
+
+    /* Wrap dashboard section with an id we can target in print CSS */
+    function PrintSignalsDashboard() {
+      return (
+        <div id="signals-dashboard-wrap">
+          <SignalsDashboard />
+        </div>
+      );
+    }
+
+    function App() {
+      const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+      useEffect(() => {
+        document.documentElement.style.setProperty('--accent', t.accentColor);
+      }, [t.accentColor]);
+
+      return (
+        <>
+          <main>
+            <Hero onCtaClick={() => {}} />
+            <PrintSignalsDashboard />
+            <SecProblema />
+            <SecSolucion />
+            <SecSistema />
+            <SecCaso />
+            <SecDiferenciador />
+            <SecEntregables />
+            <SecEscalabilidad />
+            <SecEquipo />
+            <SecCierre onCtaClick={() => {}} />
+          </main>
+          <Footer />
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+
+    /* ── Auto-print: wait for fonts + Babel render ── */
+    document.fonts.ready.then(() => {
+      // Extra buffer for Babel transpile + React render + canvas paint
+      setTimeout(() => { window.print(); }, 1200);
+    });
+  </script>
+</body>
+</html>
