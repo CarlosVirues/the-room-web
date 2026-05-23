@@ -2,3 +2,4 @@
 Thumbs.db
 .thumbnail
 *.log
+.claude/
