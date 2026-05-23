@@ -29,7 +29,7 @@ function Hero({ onCtaClick }) {
   };
 
   return (
-    <section id="hero" style={{
+    <section id="hero" className="r-hero" style={{
       height: '100vh', minHeight: '680px',
       backgroundColor: '#0A0A0A',
       display: 'grid',
@@ -39,7 +39,7 @@ function Hero({ onCtaClick }) {
     }}>
 
       {/* ── LEFT: Text column ── */}
-      <div style={{
+      <div className="r-hero-text" style={{
         display: 'flex', flexDirection: 'column', justifyContent: 'center',
         padding: '0 48px 0 clamp(32px, 5vw, 80px)',
         position: 'relative', zIndex: 10,
@@ -109,7 +109,7 @@ function Hero({ onCtaClick }) {
         </div>
 
         {/* Scroll indicator — bottom left */}
-        <div style={{
+        <div className="r-hero-scroll" style={{
           position: 'absolute', bottom: '36px',
           left: 'clamp(32px, 5vw, 80px)',
           display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px',
@@ -125,7 +125,7 @@ function Hero({ onCtaClick }) {
       </div>
 
       {/* ── RIGHT: Video column ── */}
-      <div style={{ position: 'relative', overflow: 'hidden' }}>
+      <div className="r-hero-video" style={{ position: 'relative', overflow: 'hidden' }}>
         <video
           autoPlay loop muted playsInline
           style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}

@@ -44,7 +44,7 @@ function BodyText({ children, light, style = {} }) {
 
 function Wrapper({ id, bg, children, style = {} }) {
   return (
-    <section id={id} style={{
+    <section id={id} className="r-section" style={{
       backgroundColor: bg || '#0A0A0A',
       padding: 'clamp(80px, 10vw, 140px) clamp(24px, 6vw, 80px)',
       ...style,
@@ -71,7 +71,7 @@ function SecProblema() {
   return (
     <Wrapper id="problema" bg="#0A0A0A">
       <Eyebrow>El costo de llegar tarde</Eyebrow>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'start' }}>
+      <div className="r-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'start' }}>
         <div>
           <SectionHeadline>Cuando el gobierno responde, la conversación ya se movió.</SectionHeadline>
         </div>
@@ -86,7 +86,7 @@ function SecProblema() {
       </div>
 
       {/* 4 pain points */}
-      <div style={{
+      <div className="r-grid-4" style={{
         display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px',
         marginTop: '80px', borderTop: '1px solid rgba(245,244,241,0.08)',
       }}>
@@ -128,14 +128,14 @@ function SecSolucion() {
   return (
     <Wrapper id="solucion" bg="#F5F4F1">
       <Eyebrow light>La nueva ventaja</Eyebrow>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'start', marginBottom: '80px' }}>
+      <div className="r-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'start', marginBottom: '80px' }}>
         <SectionHeadline light>Liderar el ciclo, no responderle.</SectionHeadline>
         <div>
           <BodyText light>THE ROOM cruza tres capas que nadie más cruza en política:</BodyText>
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', backgroundColor: 'rgba(10,10,10,0.08)' }}>
+      <div className="r-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', backgroundColor: 'rgba(10,10,10,0.08)' }}>
         {layers.map((l, i) => (
           <div key={i} style={{ backgroundColor: '#F5F4F1', padding: '48px 40px' }}>
             <div style={{
@@ -153,7 +153,7 @@ function SecSolucion() {
         ))}
       </div>
 
-      <div style={{
+      <div className="r-grid-3" style={{
         marginTop: '60px',
         display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0',
         borderTop: '2px solid #0A0A0A',
@@ -207,7 +207,7 @@ function SecSistema() {
       <Eyebrow>4 pasos · un solo objetivo</Eyebrow>
 
       {/* Header row */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'end', marginBottom: '64px' }}>
+      <div className="r-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'end', marginBottom: '64px' }}>
         <div>
           <h2 style={{
             fontFamily: "'Cormorant Garamond', serif",
@@ -227,7 +227,7 @@ function SecSistema() {
       </div>
 
       {/* 4-column step cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', backgroundColor: 'rgba(245,244,241,0.05)' }}>
+      <div className="r-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', backgroundColor: 'rgba(245,244,241,0.05)' }}>
         {steps.map((s) => (
           <div key={s.num} style={{
             backgroundColor: s.highlight ? 'rgba(215,38,49,0.06)' : '#111111',
@@ -331,7 +331,7 @@ function SecCaso() {
       <SectionHeadline style={{ maxWidth: '800px' }}>Crisis de gasolina. 4 días de silencio gubernamental. Esto fue lo que el RADAR detectó.</SectionHeadline>
 
       {/* Stats grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', backgroundColor: 'rgba(245,244,241,0.06)', marginTop: '60px', marginBottom: '64px' }}>
+      <div className="r-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', backgroundColor: 'rgba(245,244,241,0.06)', marginTop: '60px', marginBottom: '64px' }}>
         {stats.map((s, i) => (
           <div key={i} style={{ backgroundColor: '#0A0A0A', padding: '36px 28px' }}>
             <div style={{
@@ -353,14 +353,14 @@ function SecCaso() {
       </BodyText>
 
       {/* Mission card */}
-      <div style={{ border: '1px solid rgba(215,38,49,0.3)', borderLeft: '3px solid #D72631', padding: '40px 48px', backgroundColor: 'rgba(215,38,49,0.04)' }}>
+      <div className="r-caso-card" style={{ border: '1px solid rgba(215,38,49,0.3)', borderLeft: '3px solid #D72631', padding: '40px 48px', backgroundColor: 'rgba(215,38,49,0.04)' }}>
         <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: '#D72631', letterSpacing: '0.25em', marginBottom: '20px' }}>
           MISIÓN ACTIVADA
         </div>
         <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '20px', fontWeight: 700, color: '#F5F4F1', marginBottom: '40px', lineHeight: 1.3 }}>
           EL PRESIDENTE HABLA PRIMERO, CON DATOS Y CON PLAN
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }}>
+        <div className="r-caso-phases" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }}>
           {phases.map((ph, i) => (
             <div key={i} style={{ display: 'flex', gap: '16px' }}>
               <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: '#D72631', letterSpacing: '0.15em', paddingTop: '3px', flexShrink: 0 }}>→ {ph.tag}</div>
@@ -391,7 +391,7 @@ function SecDiferenciador() {
       <Eyebrow light>Qué nos hace distintos</Eyebrow>
       <SectionHeadline light style={{ maxWidth: '680px', marginBottom: '60px' }}>No entregamos reportes. Entregamos cosas que pasan en la calle.</SectionHeadline>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0', border: '1px solid rgba(10,10,10,0.12)' }}>
+      <div className="r-compare" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0', border: '1px solid rgba(10,10,10,0.12)' }}>
         {/* Headers */}
         <div style={{ padding: '20px 32px', backgroundColor: 'rgba(10,10,10,0.04)', borderBottom: '2px solid rgba(10,10,10,0.15)', borderRight: '1px solid rgba(10,10,10,0.12)' }}>
           <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', letterSpacing: '0.2em', color: 'rgba(10,10,10,0.4)', textTransform: 'uppercase' }}>Lo que hace otro proveedor</div>
@@ -424,10 +424,10 @@ function SecEntregables() {
   return (
     <Wrapper id="entregables" bg="#0A0A0A">
       <Eyebrow>Entregables semanales y mensuales</Eyebrow>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'end', marginBottom: '64px' }}>
+      <div className="r-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'end', marginBottom: '64px' }}>
         <SectionHeadline>Acción permanente. No promesas.</SectionHeadline>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', backgroundColor: 'rgba(245,244,241,0.05)' }}>
+      <div className="r-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', backgroundColor: 'rgba(245,244,241,0.05)' }}>
         {cols.map((col, i) => (
           <div key={i} style={{ backgroundColor: '#0A0A0A', padding: '40px 32px' }}>
             <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: '#D72631', letterSpacing: '0.2em', marginBottom: '32px' }}>{col.period}</div>
@@ -452,11 +452,11 @@ function SecEscalabilidad() {
   return (
     <Wrapper id="escalabilidad" bg="#111111">
       <Eyebrow>De un vocero al estado completo</Eyebrow>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'start', marginBottom: '80px' }}>
+      <div className="r-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'start', marginBottom: '80px' }}>
         <SectionHeadline>Un sistema que crece con la operación política.</SectionHeadline>
         <BodyText>THE ROOM se diseña para escalar institucionalmente. Empieza en una oficina de comunicación. Crece a ministerios, voceros sectoriales, gobernaciones, bloques legislativos. Mismo sistema, distintos frentes, una sola narrativa coordinada.</BodyText>
       </div>
-      <div style={{ display: 'flex', gap: '0', alignItems: 'stretch' }}>
+      <div className="r-escala" style={{ display: 'flex', gap: '0', alignItems: 'stretch' }}>
         {steps.map((s, i) => (
           <div key={i} style={{ flex: 1, position: 'relative' }}>
             <div style={{
@@ -494,10 +494,10 @@ function SecEquipo() {
   return (
     <Wrapper id="equipo" bg="#0A0A0A">
       <Eyebrow>Mabeca Corporation</Eyebrow>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'end', marginBottom: '64px' }}>
+      <div className="r-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'end', marginBottom: '64px' }}>
         <SectionHeadline>Tres capacidades que nadie más cruza en Latinoamérica.</SectionHeadline>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', backgroundColor: 'rgba(245,244,241,0.05)', marginBottom: '48px' }}>
+      <div className="r-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', backgroundColor: 'rgba(245,244,241,0.05)', marginBottom: '48px' }}>
         {orgs.map((o, i) => (
           <div key={i} style={{ backgroundColor: '#0A0A0A', padding: '48px 36px' }}>
             <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: 'rgba(245,244,241,0.25)', letterSpacing: '0.15em', marginBottom: '20px' }}>{o.tag}</div>

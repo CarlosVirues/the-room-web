@@ -31,6 +31,56 @@
     /* Responsive */
     @media (max-width: 768px) {
       .hide-mobile { display: none !important; }
+
+      /* Hero: stack text + video */
+      .r-hero { grid-template-columns: 1fr !important; height: auto !important; min-height: 0 !important; }
+      .r-hero-text { padding: 96px 24px 56px !important; }
+      .r-hero-text h1 { font-size: clamp(30px, 8vw, 40px) !important; }
+      .r-hero-video { height: 280px !important; }
+      .r-hero-scroll { display: none !important; }
+
+      /* Generic grid collapses */
+      .r-grid-2 { grid-template-columns: 1fr !important; gap: 32px !important; }
+      .r-grid-3 { grid-template-columns: 1fr !important; gap: 1px !important; }
+      .r-grid-4 { grid-template-columns: 1fr 1fr !important; }
+      .r-grid-4 > div:nth-child(n) { border-right: none !important; }
+      .r-grid-4 > div:nth-child(odd) { border-right: 1px solid rgba(245,244,241,0.08) !important; }
+
+      /* Wrapper paddings */
+      .r-section { padding: 72px 20px !important; }
+
+      /* Section headlines slightly smaller on phone */
+      .r-section h2 { font-size: clamp(28px, 8vw, 40px) !important; }
+
+      /* Dashboard */
+      .r-dash-body { grid-template-columns: 1fr !important; min-height: 0 !important; }
+      .r-dash-left { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.06) !important; }
+      .r-dash-graph { flex: 0 0 240px !important; }
+      .r-dash-stats { grid-template-columns: 1fr 1fr 1fr !important; }
+      .r-dash-charts { grid-template-columns: 1fr !important; gap: 16px !important; }
+      .r-dash-missions { grid-template-columns: 1fr !important; }
+      .r-dash-missions > div:first-child { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.06) !important; }
+
+      /* Escalabilidad bar — stack */
+      .r-escala { flex-direction: column !important; gap: 4px !important; }
+      .r-escala > div { flex: none !important; }
+      .r-escala > div > div { height: auto !important; padding: 18px 24px !important; }
+
+      /* Caso phases inside mission card */
+      .r-caso-phases { grid-template-columns: 1fr !important; gap: 20px !important; }
+      .r-caso-card { padding: 28px 22px !important; }
+
+      /* Diferenciador comparison: keep 2 cols but tighter padding */
+      .r-compare > div { padding: 16px 18px !important; }
+
+      /* Modal */
+      .modal-card { padding: 40px 24px !important; }
+    }
+
+    @media (max-width: 480px) {
+      .r-grid-4 { grid-template-columns: 1fr !important; }
+      .r-grid-4 > div { border-right: none !important; border-bottom: 1px solid rgba(245,244,241,0.08) !important; }
+      .r-dash-stats { grid-template-columns: 1fr 1fr !important; }
     }
 
     /* Pulse animation for live dot */
@@ -79,11 +129,11 @@
   <div id="root"></div>
 
   <!-- Components -->
-  <script type="text/babel" src="tweaks-panel.jsx"></script>
-  <script type="text/babel" src="room-nav.jsx"></script>
-  <script type="text/babel" src="room-hero.jsx"></script>
-  <script type="text/babel" src="room-dashboard.jsx"></script>
-  <script type="text/babel" src="room-sections.jsx"></script>
+  <script type="text/babel" src="tweaks-panel.jsx?v=2"></script>
+  <script type="text/babel" src="room-nav.jsx?v=2"></script>
+  <script type="text/babel" src="room-hero.jsx?v=2"></script>
+  <script type="text/babel" src="room-dashboard.jsx?v=2"></script>
+  <script type="text/babel" src="room-sections.jsx?v=2"></script>
 
   <script type="text/babel">
     const { useState, useEffect } = React;

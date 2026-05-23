@@ -307,12 +307,12 @@ function SignalsDashboard() {
           </div>
 
           {/* ── Body */}
-          <div style={S.body}>
+          <div className="r-dash-body" style={S.body}>
 
             {/* LEFT PANEL */}
-            <div style={S.leftPanel}>
+            <div className="r-dash-left" style={S.leftPanel}>
               {/* Network graph */}
-              <div style={S.graphArea}><NetworkGraph /></div>
+              <div className="r-dash-graph" style={S.graphArea}><NetworkGraph /></div>
 
               {/* Legend */}
               <div style={S.legend}>
@@ -351,7 +351,7 @@ function SignalsDashboard() {
             {/* RIGHT PANEL */}
             <div style={S.rightPanel}>
               {/* Stats */}
-              <div style={S.statsRow}>
+              <div className="r-dash-stats" style={S.statsRow}>
                 {[['61','OPORTUNIDADES ACTIVAS'],['4.2 sem','VENTANA PROMEDIO'],['17','ALTA PRIORIDAD']].map(([n,l],i) => (
                   <div key={l} style={{ ...S.statCell, borderRight: i<2 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
                     <div style={S.statNum}>{n}</div>
@@ -361,7 +361,7 @@ function SignalsDashboard() {
               </div>
 
               {/* Charts */}
-              <div style={S.chartsArea}>
+              <div className="r-dash-charts" style={S.chartsArea}>
                 <div>
                   <div style={{ fontSize:'9px', color:'rgba(255,255,255,0.3)', letterSpacing:'0.12em', marginBottom:'4px' }}>URGENCIA POR MÓDULO ▾</div>
                   <div style={{ width:'160px', height:'160px', margin:'0 auto' }}><RadarChart /></div>
@@ -373,7 +373,7 @@ function SignalsDashboard() {
               </div>
 
               {/* Missions split */}
-              <div style={S.missionsSplit}>
+              <div className="r-dash-missions" style={S.missionsSplit}>
                 {/* Log */}
                 <div style={S.logPanel}>
                   <div style={S.logHeader}>MISIONES — LOG</div>
