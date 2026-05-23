@@ -121,9 +121,9 @@ function SecProblema() {
 /* ─── Section 3: LA SOLUCIÓN ─── */
 function SecSolucion() {
   const layers = [
-    { label: "Tecnología predictiva", desc: "Escucha el país en tiempo real.", tag: "01" },
-    { label: "Metodología de decisión acelerada", desc: "Convierte señales en misiones en horas.", tag: "02" },
-    { label: "Ejecución creativa", desc: "Sale de la sala con piezas listas para activar.", tag: "03" },
+    { label: "Lectura en tiempo real", desc: "Escuchamos el país a cada minuto. IA propietaria que detecta micro-conversaciones antes de que escalen a tendencia. No es un reporte de la semana pasada: es lo que está pasando ahora mismo.", tag: "01" },
+    { label: "Producción en tiempo real", desc: "Convertimos cada señal en contenido viral mientras la conversación todavía está caliente. Agentes IA produciendo guion, video, copy y arte en simultáneo, con curaduría humana antes de publicar.", tag: "02" },
+    { label: "Distribución masiva", desc: "Sembramos en cientos de cuentas reales con audiencias construidas. La narrativa no depende de pauta ni de un único canal: se activa en red, al mismo tiempo, en los segmentos que importan.", tag: "03" },
   ];
   return (
     <Wrapper id="solucion" bg="#F5F4F1">
@@ -153,21 +153,25 @@ function SecSolucion() {
         ))}
       </div>
 
-      <div className="r-grid-3" style={{
-        marginTop: '60px',
-        display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0',
+      <div style={{
+        marginTop: '60px', paddingTop: '36px',
         borderTop: '2px solid #0A0A0A',
+        display: 'flex', alignItems: 'baseline', gap: '20px', flexWrap: 'wrap',
       }}>
-        {[
-          { formula: "Lectura sin activación", result: "= reporte" },
-          { formula: "Activación sin lectura", result: "= riesgo" },
-          { formula: "THE ROOM", result: "= lectura temprana + activación estratégica", bold: true },
-        ].map((f, i) => (
-          <div key={i} style={{ padding: '28px 0', borderRight: i < 2 ? '1px solid rgba(10,10,10,0.12)' : 'none', paddingRight: '32px', paddingLeft: i > 0 ? '32px' : '0' }}>
-            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: 'rgba(10,10,10,0.5)', marginBottom: '6px' }}>{f.formula}</div>
-            <div style={{ fontFamily: "'JetBrains Mono', monospace', monospace", fontSize: '13px', fontWeight: f.bold ? 700 : 400, color: f.bold ? '#D72631' : '#0A0A0A' }}>{f.result}</div>
-          </div>
-        ))}
+        <div style={{
+          fontFamily: "'Space Grotesk', sans-serif",
+          fontSize: 'clamp(22px, 2.4vw, 30px)', fontWeight: 700,
+          color: '#0A0A0A', letterSpacing: '-0.01em', lineHeight: 1.15,
+        }}>
+          Leer <span style={{ color: '#D72631' }}>+</span> Producir <span style={{ color: '#D72631' }}>+</span> Distribuir, en simultáneo.
+        </div>
+        <div style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: '12px', color: 'rgba(10,10,10,0.45)',
+          letterSpacing: '0.12em', textTransform: 'uppercase',
+        }}>
+          Eso es controlar el ciclo.
+        </div>
       </div>
     </Wrapper>
   );
@@ -178,25 +182,29 @@ function SecSistema() {
   const steps = [
     {
       num: '01', name: 'RADAR', sub: 'Detección anticipatoria con IA',
+      cadence: 'ACTUALIZACIÓN CADA MINUTO',
       desc: 'IA predictiva entrenada para política. Detecta conversaciones positivas y negativas antes de que escalen a tendencia. Clasifica cada señal por tema, tipo y emoción dominante.',
       quote: 'Mientras otros monitorean, nosotros anticipamos.',
       highlight: false,
     },
     {
       num: '02', name: 'MISIONES', sub: 'De la señal a la decisión',
+      cadence: 'ACTIVAS AHORA: 6',
       desc: 'Cada conversación crítica se convierte en una misión con objetivo, ventana de tiempo y métricas. No se trata de generar más contenido, sino de elegir qué amplificar y cuándo.',
       quote: 'La conversación se transforma en plan.',
       highlight: false,
     },
     {
       num: '03', name: 'ASESORES IA', sub: 'Estrategia con la lógica de los que ganaron',
+      cadence: '6 ASESORES DISPONIBLES',
       desc: 'Cada misión se discute con asesores entrenados sobre la lógica de figuras políticas reales que dominaron su ciclo. Distintos ángulos, distintos enfoques, una decisión final.',
       quote: 'La estrategia que tardaría días, en minutos.',
       highlight: true,
     },
     {
-      num: '04', name: 'CONTENIDO IA', sub: 'Producción con agentes IA + curaduría humana',
-      desc: 'Agentes que generan video, copy y arte. Curaduría humana antes de salir. Cada pieza nace conectada a la misión y a la ventana de tiempo que la conversación permite.',
+      num: '04', name: 'CONTENIDO', sub: 'Producción 24/7 con ADN viral',
+      cadence: 'PRODUCCIÓN 24/7',
+      desc: 'Agentes IA producen piezas en formato, voz y volumen requeridos. Cada pieza nace construida sobre los componentes que hacen viral al contenido en LATAM: estructura narrativa, gancho, duración, formato. Edición y criterio humano firman cada salida antes de la activación.',
       quote: 'Producción a velocidad de máquina, criterio de equipo político.',
       highlight: false,
     },
@@ -259,6 +267,29 @@ function SecSistema() {
               color: s.highlight ? 'rgba(215,38,49,0.8)' : 'rgba(245,244,241,0.3)',
               letterSpacing: '0.15em', textTransform: 'uppercase',
             }}>{s.sub}</div>
+
+            {/* Cadence indicator */}
+            {s.cadence && (
+              <div style={{
+                display: 'inline-flex', alignItems: 'center', gap: '7px',
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: '9px', fontWeight: 600,
+                color: 'rgba(245,244,241,0.55)',
+                letterSpacing: '0.14em', textTransform: 'uppercase',
+                padding: '6px 10px',
+                border: '1px solid rgba(245,244,241,0.08)',
+                borderRadius: '2px',
+                alignSelf: 'flex-start',
+                background: 'rgba(245,244,241,0.02)',
+              }}>
+                <span style={{
+                  width: '6px', height: '6px', borderRadius: '50%',
+                  backgroundColor: '#E63946', display: 'inline-block', flexShrink: 0,
+                  animation: 'roomPulse 1.8s ease-in-out infinite',
+                }} />
+                {s.cadence}
+              </div>
+            )}
 
             {/* Divider */}
             <div style={{ height: '1px', backgroundColor: s.highlight ? 'rgba(215,38,49,0.2)' : 'rgba(245,244,241,0.07)' }} />
@@ -376,13 +407,93 @@ function SecCaso() {
   );
 }
 
+/* ─── Section 5.5: AMPLIFICACIÓN ORGÁNICA ─── */
+function SecAmplificacion() {
+  const cards = [
+    {
+      tag: '→ Cientos de cuentas activables',
+      body: 'Audiencias reales pre-construidas en verticales temáticas. No bots, no granjas. Comunidades con engagement orgánico activo.',
+    },
+    {
+      tag: '→ Activación simultánea',
+      body: 'La narrativa se siembra al mismo tiempo en decenas o cientos de cuentas, según la intensidad que la misión requiera. Saturación controlada, no spam.',
+    },
+    {
+      tag: '→ Trazabilidad completa',
+      body: 'De la activación al impacto narrativo. Cada movimiento queda documentado. Sabemos qué cuenta movió qué conversación.',
+    },
+  ];
+  return (
+    <Wrapper id="amplificacion" bg="#0A0A0A">
+      <Eyebrow>Amplificación orgánica</Eyebrow>
+      <div className="r-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'end', marginBottom: '56px' }}>
+        <SectionHeadline style={{ marginBottom: 0 }}>La narrativa no se distribuye sola.</SectionHeadline>
+        <BodyText>Distribución no es publicar. Es activar. THE ROOM siembra cada narrativa en una red propia, no en el feed de un canal oficial.</BodyText>
+      </div>
+
+      {/* Featured block */}
+      <div style={{
+        border: '1px solid rgba(215,38,49,0.3)',
+        borderLeft: '3px solid #D72631',
+        padding: 'clamp(28px, 4vw, 48px) clamp(24px, 4vw, 56px)',
+        backgroundColor: 'rgba(215,38,49,0.04)',
+        marginBottom: '64px',
+      }}>
+        <div style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: '10px', color: '#D72631',
+          letterSpacing: '0.25em', textTransform: 'uppercase',
+          marginBottom: '18px',
+        }}>Modelo de distribución</div>
+        <div style={{
+          fontFamily: "'Space Grotesk', sans-serif",
+          fontSize: 'clamp(26px, 3.4vw, 40px)', fontWeight: 700,
+          color: '#F5F4F1', lineHeight: 1.15, letterSpacing: '-0.015em',
+          marginBottom: '20px',
+        }}>
+          No publicamos en una cuenta. <span style={{ color: '#D72631' }}>Activamos cientos.</span>
+        </div>
+        <div style={{
+          fontFamily: "'Manrope', sans-serif",
+          fontSize: 'clamp(15px, 1.4vw, 17px)',
+          color: 'rgba(245,244,241,0.7)', lineHeight: 1.7,
+          maxWidth: '780px',
+        }}>
+          Cada narrativa se distribuye simultáneamente en una red curada de cientos de cuentas ecuatorianas con audiencias reales — construidas previamente en verticales como farándula, deportes, entretenimiento, lifestyle. Cuando una conversación tiene que ganar el ciclo, no compite contra el algoritmo: lo satura.
+        </div>
+      </div>
+
+      {/* Three cards */}
+      <div className="r-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', backgroundColor: 'rgba(245,244,241,0.05)' }}>
+        {cards.map((c, i) => (
+          <div key={i} style={{ backgroundColor: '#0A0A0A', padding: '40px 32px' }}>
+            <div style={{
+              fontFamily: "'Space Grotesk', sans-serif",
+              fontSize: '17px', fontWeight: 700,
+              color: '#F5F4F1', lineHeight: 1.3,
+              marginBottom: '16px', letterSpacing: '-0.005em',
+            }}>{c.tag}</div>
+            <div style={{
+              fontFamily: "'Manrope', sans-serif",
+              fontSize: '14px', color: 'rgba(245,244,241,0.6)',
+              lineHeight: 1.7,
+            }}>{c.body}</div>
+          </div>
+        ))}
+      </div>
+    </Wrapper>
+  );
+}
+
 /* ─── Section 6: DIFERENCIADOR ─── */
 function SecDiferenciador() {
   const rows = [
     ["Social listening con dos semanas de retraso", "Inteligencia en tiempo real"],
     ["Reportes en PowerPoint", "Misiones con Action Board"],
-    ["Análisis sin recomendación", "Misiones con objetivo, ventana y métricas"],
+    ["Análisis sin recomendación", "Ejecución en horas"],
     ["Métricas vanidosas (alcance, menciones)", "KPIs políticos (conversaciones convertidas, velocidad de respuesta)"],
+    ["Contenido producido por equipos humanos en días", "Contenido producido por agentes IA en horas, con ADN viral"],
+    ["Distribución vía pauta o una cuenta oficial", "Distribución simultánea en cientos de cuentas con audiencias reales"],
     ["Equipo subcontratado por proyecto", "Sala dedicada: estrategia + creativos + tecnología"],
     ["Casado con un partido", "Sistema apartidista, sobrevive a cualquier gobierno"],
   ];
@@ -586,6 +697,7 @@ function Footer() {
 
 Object.assign(window, {
   SecProblema, SecSolucion, SecSistema, SecCaso,
+  SecAmplificacion,
   SecDiferenciador, SecEntregables, SecEscalabilidad,
   SecEquipo, SecCierre, Footer,
   Eyebrow, SectionHeadline, BodyText, Wrapper, Divider,
