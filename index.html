@@ -91,6 +91,9 @@
       .r-grid-4 { grid-template-columns: 1fr !important; }
       .r-grid-4 > div { border-right: none !important; border-bottom: 1px solid rgba(245,244,241,0.08) !important; }
       .r-dash-stats { grid-template-columns: 1fr 1fr !important; }
+
+      /* En móvil chico el menú R·O·O·M ya es la marca: ocultar wordmark del landing */
+      .r-logo-landing { display: none !important; }
     }
 
     /* Pulse animation for live dot */
@@ -139,11 +142,11 @@
   <div id="root"></div>
 
   <!-- Components -->
-  <script type="text/babel" src="tweaks-panel.jsx?v=7"></script>
-  <script type="text/babel" src="room-nav.jsx?v=7"></script>
-  <script type="text/babel" src="room-hero.jsx?v=7"></script>
-  <script type="text/babel" src="room-dashboard.jsx?v=7"></script>
-  <script type="text/babel" src="room-sections.jsx?v=7"></script>
+  <script type="text/babel" src="tweaks-panel.jsx?v=8"></script>
+  <script type="text/babel" src="room-nav.jsx?v=8"></script>
+  <script type="text/babel" src="room-hero.jsx?v=8"></script>
+  <script type="text/babel" src="room-dashboard.jsx?v=8"></script>
+  <script type="text/babel" src="room-sections.jsx?v=8"></script>
 
   <script type="text/babel">
     const { useState, useEffect } = React;

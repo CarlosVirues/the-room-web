@@ -38,13 +38,12 @@ function RoomMenu({ items, dark }) {
 }
 
 // Shared items (R.O.O.M = RADAR · OBSERVE · OWN · MOVE)
-function roomItems(active, fromSubpage) {
-  const home = fromSubpage ? 'index.html' : '';
+function roomItems(active) {
   return [
-    { letter: 'R', word: 'Radar',   href: home + '#sistema', active: active === 'radar' },
-    { letter: 'O', word: 'Observe', href: 'observe.html',    active: active === 'observe' },
-    { letter: 'O', word: 'Own',     href: 'own.html',        active: active === 'own' },
-    { letter: 'M', word: 'Move',    href: 'move.html',       active: active === 'move' },
+    { letter: 'R', word: 'Radar',   href: 'radar.html',   active: active === 'radar' },
+    { letter: 'O', word: 'Observe', href: 'observe.html', active: active === 'observe' },
+    { letter: 'O', word: 'Own',     href: 'own.html',     active: active === 'own' },
+    { letter: 'M', word: 'Move',    href: 'move.html',    active: active === 'move' },
   ];
 }
 
@@ -89,6 +88,7 @@ function Navbar() {
       <div style={{ flex: 1 }}>
         <button
           onClick={() => scrollTo('#hero')}
+          className="r-logo-landing"
           style={{ ...monoBase, color: '#F5F1EB', fontWeight: 700, fontSize: '13px', letterSpacing: '0.18em', padding: 0 }}
         >
           THE ROOM
@@ -97,7 +97,7 @@ function Navbar() {
 
       {/* Center: R.O.O.M menu */}
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <RoomMenu items={roomItems(null, false)} />
+        <RoomMenu items={roomItems(null)} />
       </div>
 
       {/* Right: Login */}

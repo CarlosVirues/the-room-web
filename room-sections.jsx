@@ -875,6 +875,26 @@ function RoomPhase({ capa, titleEs, titleEm, titleEn, intro, cards, caption, nex
   );
 }
 
+function SecRadar() {
+  return (
+    <RoomPhase
+      capa="Capa 01 · RADAR"
+      titleEs="No monitorea."
+      titleEm="Anticipa."
+      titleEn="It doesn't monitor. RADAR sees the conversation before it trends."
+      intro="Mientras otros revisan reportes de la semana pasada, RADAR escucha el país a cada minuto y detecta la señal cuando todavía es pequeña — antes de que escale a tendencia."
+      cards={[
+        { es: 'Detección anticipatoria', en: 'Anticipatory detection', desc: 'IA predictiva entrenada para política. Encuentra la conversación antes de que sea tendencia.' },
+        { es: 'Escucha multiplataforma', en: 'Multi-platform listening', desc: 'TikTok, X, Instagram, Facebook, YouTube, medios y regionales — en una sola lectura.' },
+        { es: 'Clasificación por señal', en: 'Signal classification', desc: 'Cada señal etiquetada por tema, tipo y emoción dominante. Conversación real, sin ruido.' },
+        { es: 'Priorización por urgencia', en: 'Urgency scoring', desc: 'Qué importa ahora: score de oportunidad, crisis y ventana de tiempo para actuar.' },
+      ]}
+      caption="Mientras otros monitorean, nosotros anticipamos."
+      next={{ href: 'observe.html', label: 'OBSERVE' }}
+    />
+  );
+}
+
 function SecObserve() {
   return (
     <RoomPhase
@@ -1128,7 +1148,7 @@ function Footer() {
 Object.assign(window, {
   SecProblema, SecSolucion, SecSistema, SecCaso,
   SecAmplificacion, SecMove, SecMoveTeaser,
-  RoomPhase, SecObserve, SecOwn,
+  RoomPhase, SecRadar, SecObserve, SecOwn,
   SecDiferenciador, SecEntregables, SecEscalabilidad,
   SecEquipo, SecCierre, Footer,
   Eyebrow, SectionHeadline, BodyText, Wrapper, Divider,
