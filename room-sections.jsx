@@ -734,7 +734,7 @@ function SecMove() {
           <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(20px, 2.4vw, 28px)', fontStyle: 'italic', color: 'rgba(245,244,241,0.6)', maxWidth: '24ch' }}>
             Esto es solo la mecánica. La operación completa se ve adentro.
           </div>
-          <a href="#cierre" className="r-move-cta" style={{
+          <a href="index.html#cierre" className="r-move-cta" style={{
             ...mono, fontSize: '11px', color: '#F5F1EB',
             display: 'inline-flex', alignItems: 'center', gap: '10px',
             border: '1px solid rgba(245,241,235,0.35)', padding: '15px 30px',
@@ -745,12 +745,72 @@ function SecMove() {
             onMouseOver={e => { e.currentTarget.style.backgroundColor = '#F5F1EB'; e.currentTarget.style.color = '#0A0A0A'; }}
             onMouseOut={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#F5F1EB'; }}
           >
-            Ver la metodología completa · See the full methodology →
+            Solicitar acceso a la sala · Request access →
           </a>
         </div>
 
       </div>
     </section>
+  );
+}
+
+/* ─── Section 5.7b: MOVE · TEASER (landing) ─── */
+function SecMoveTeaser() {
+  const mecanicas = [
+    { num: '01', es: 'Ruteo narrativo', en: 'Narrative Routing', claim: 'Distribuimos rutas, no piezas.' },
+    { num: '02', es: 'Storyworld coordinado', en: 'Coordinated Storyworld', claim: 'Cada cuenta es un personaje, no un canal.' },
+    { num: '03', es: 'Control de primeros minutos', en: 'First Minutes Command', claim: 'Los primeros 15 minutos deciden el resto.' },
+  ];
+  const mono = { fontFamily: "'JetBrains Mono', monospace", letterSpacing: '0.15em', textTransform: 'uppercase' };
+  return (
+    <Wrapper id="move" bg="#0A0A0A">
+      <div style={{ ...mono, fontSize: '10px', color: '#D72631', marginBottom: '24px' }}>Capa 04 · MOVE</div>
+      <div className="r-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'end', marginBottom: '56px' }}>
+        <div>
+          <h2 style={{
+            fontFamily: "'Cormorant Garamond', serif",
+            fontSize: 'clamp(34px, 5vw, 60px)', fontWeight: 500,
+            lineHeight: 1.06, letterSpacing: '-0.015em', color: '#F5F4F1', margin: '0 0 16px 0',
+          }}>
+            MOVE ya no es ejecutar rápido. <em style={{ color: '#D72631', fontStyle: 'italic' }}>Es coreografiar narrativa.</em>
+          </h2>
+          <div style={{ ...mono, fontSize: '11px', color: 'rgba(245,244,241,0.4)', letterSpacing: '0.1em' }}>
+            MOVE isn't speed anymore. It's narrative choreography.
+          </div>
+        </div>
+        <BodyText>
+          El resto del mercado vende alcance. Nosotros entregamos narrativa orquestada en tiempo real: ruteo narrativo, storyworld coordinado y control de los primeros minutos.
+        </BodyText>
+      </div>
+
+      <div className="r-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', backgroundColor: 'rgba(245,244,241,0.07)' }}>
+        {mecanicas.map((m) => (
+          <div key={m.num} style={{ backgroundColor: '#0A0A0A', padding: '36px 30px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div style={{ ...mono, fontSize: '11px', fontWeight: 700, color: '#D72631' }}>{m.num}</div>
+            <MoveLabel es={m.es} en={m.en} />
+            <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '20px', fontStyle: 'italic', color: 'rgba(245,244,241,0.65)', lineHeight: 1.3 }}>{m.claim}</div>
+          </div>
+        ))}
+      </div>
+
+      <div style={{ marginTop: '48px', display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
+        <a href="move.html" className="r-move-cta" style={{
+          ...mono, fontSize: '11px', color: '#0A0A0A', backgroundColor: '#F5F1EB',
+          display: 'inline-flex', alignItems: 'center', gap: '10px',
+          border: '1px solid #F5F1EB', padding: '15px 32px',
+          textDecoration: 'none', letterSpacing: '0.12em', lineHeight: 1.5,
+          transition: 'opacity 0.2s ease',
+        }}
+          onMouseOver={e => e.currentTarget.style.opacity = '0.85'}
+          onMouseOut={e => e.currentTarget.style.opacity = '1'}
+        >
+          Ver cómo funciona · See how it works →
+        </a>
+        <span style={{ ...mono, fontSize: '10px', color: 'rgba(245,244,241,0.3)', letterSpacing: '0.1em', textTransform: 'none' }}>
+          Las 3 mecánicas en detalle, rutas, personajes y la coreografía minuto a minuto.
+        </span>
+      </div>
+    </Wrapper>
   );
 }
 
@@ -966,7 +1026,7 @@ function Footer() {
 
 Object.assign(window, {
   SecProblema, SecSolucion, SecSistema, SecCaso,
-  SecAmplificacion, SecMove,
+  SecAmplificacion, SecMove, SecMoveTeaser,
   SecDiferenciador, SecEntregables, SecEscalabilidad,
   SecEquipo, SecCierre, Footer,
   Eyebrow, SectionHeadline, BodyText, Wrapper, Divider,
