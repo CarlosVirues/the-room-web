@@ -485,6 +485,275 @@ function SecAmplificacion() {
   );
 }
 
+/* ─── Section 5.7: CAPA 04 · MOVE ─── */
+function MoveLabel({ es, en }) {
+  return (
+    <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', flexWrap: 'wrap' }}>
+      <span style={{
+        fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700,
+        fontSize: '18px', color: '#F5F4F1', letterSpacing: '-0.01em',
+      }}>{es}</span>
+      <span style={{
+        fontFamily: "'JetBrains Mono', monospace", fontSize: '10px',
+        color: 'rgba(245,244,241,0.35)', letterSpacing: '0.12em', textTransform: 'uppercase',
+      }}>{en}</span>
+    </div>
+  );
+}
+
+function SecMove() {
+  const problema = [
+    ['Pauta donde se habla del tema', 'Decide qué ruta narrativa activar'],
+    ['Repostea con muchos influencers', 'Trata cada cuenta como un personaje'],
+    ['Responde rápido con community managers', 'Coreografía los primeros minutos'],
+    ['Mide alcance', 'Mide qué narrativa ganó'],
+  ];
+
+  const mecanicas = [
+    { num: '01', es: 'Ruteo narrativo', en: 'Narrative Routing', claim: 'Distribuimos rutas, no piezas.' },
+    { num: '02', es: 'Storyworld coordinado', en: 'Coordinated Storyworld', claim: 'Cada cuenta es un personaje, no un canal.' },
+    { num: '03', es: 'Control de primeros minutos', en: 'First Minutes Command', claim: 'Los primeros 15 minutos deciden cómo se lee el resto.' },
+  ];
+
+  const rutas = [
+    { es: 'Ruta humor', en: 'Humor Route', desc: 'Sátira que hace el tema compartible.', c: '#F5B400' },
+    { es: 'Ruta legal', en: 'Legal Route', desc: 'Autoridad técnica que desarma argumentos.', c: '#60A5FA' },
+    { es: 'Ruta empatía', en: 'Empathy Route', desc: 'Testimonio en primera persona.', c: '#A855F7' },
+    { es: 'Ruta datos', en: 'Data Route', desc: 'Cifras y fuentes verificables.', c: '#4ADE80' },
+  ];
+
+  const personajes = [
+    { es: 'El satírico', en: 'The Satirist', desc: 'Convierte ataques en memes.' },
+    { es: 'El técnico', en: 'The Expert', desc: 'Argumento legal o de dato.' },
+    { es: 'El ciudadano', en: 'The Citizen', desc: 'Voz cotidiana, testimonial.' },
+    { es: 'El insider', en: 'The Insider', desc: 'Datos desde adentro, autoridad.' },
+    { es: 'El oficial', en: 'The Official', desc: 'Vocería institucional.' },
+    { es: 'El conector', en: 'The Connector', desc: 'Mueve la conversación entre plataformas.' },
+  ];
+
+  const timeline = [
+    { t: 'MIN 0', es: 'Pieza madre publicada', en: 'Mother post live' },
+    { t: 'MIN 0–5', es: '5–10 comentarios clave de cuentas reales', en: '5–10 key comments' },
+    { t: 'MIN 5–10', es: '2–3 creadores publican su versión', en: '2–3 creators react' },
+    { t: 'MIN 10–15', es: 'Stitches, dúos y micro-respuestas que encuadran', en: 'Stitches & duos frame the read' },
+  ];
+
+  const noEs = [
+    ['Granja de bots', 'Bot farm', 'Red de personas reales', 'Network of real people'],
+    ['Repost masivo', 'Mass reposting', 'Rutas narrativas distintas', 'Distinct narrative routes'],
+    ['Pauta donde se habla del tema', 'Ads on the topic', 'Coreografía de primeros minutos', 'First-minutes choreography'],
+    ['Community management reactivo', 'Reactive CM', 'Activación coordinada en <15 min', 'Coordinated activation under 15 min'],
+    ['Medir alcance', 'Measuring reach', 'Medir qué narrativa ganó', 'Measuring which narrative won'],
+  ];
+
+  const mono = { fontFamily: "'JetBrains Mono', monospace", letterSpacing: '0.15em', textTransform: 'uppercase' };
+  const cardBg = '#0A0A0A';
+
+  return (
+    <section id="move" className="r-section" style={{
+      backgroundColor: '#0A0A0A',
+      padding: 'clamp(80px, 10vw, 140px) clamp(24px, 6vw, 80px)',
+      borderTop: '1px solid rgba(245,244,241,0.06)',
+    }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+
+        {/* ── A · OPENER ── */}
+        <div style={{ ...mono, fontSize: '10px', color: '#D72631', marginBottom: '28px' }}>Capa 04 · MOVE</div>
+        <h2 style={{
+          fontFamily: "'Cormorant Garamond', serif",
+          fontSize: 'clamp(38px, 6vw, 72px)', fontWeight: 500,
+          lineHeight: 1.04, letterSpacing: '-0.015em', color: '#F5F4F1',
+          margin: '0 0 20px 0', maxWidth: '15ch',
+        }}>
+          MOVE ya no es ejecutar rápido. <em style={{ color: '#D72631', fontStyle: 'italic' }}>Es coreografiar narrativa.</em>
+        </h2>
+        <div style={{ ...mono, fontSize: '12px', color: 'rgba(245,244,241,0.4)', letterSpacing: '0.1em', marginBottom: '32px' }}>
+          MOVE isn't speed anymore. It's narrative choreography.
+        </div>
+        <BodyText style={{ maxWidth: '620px' }}>
+          El resto del mercado vende alcance. Nosotros entregamos narrativa orquestada en tiempo real.
+        </BodyText>
+
+        {/* ── B · EL PROBLEMA ── */}
+        <div style={{ marginTop: 'clamp(64px, 9vw, 120px)' }}>
+          <div style={{ ...mono, fontSize: '10px', color: '#D72631', marginBottom: '20px' }}>El problema · The Problem</div>
+          <h3 style={{
+            fontFamily: "'Space Grotesk', sans-serif",
+            fontSize: 'clamp(26px, 3.6vw, 44px)', fontWeight: 700,
+            letterSpacing: '-0.02em', lineHeight: 1.1, color: '#F5F4F1', margin: '0 0 48px 0', maxWidth: '20ch',
+          }}>
+            Hoy se produce contenido. Casi nadie coordina narrativa.
+          </h3>
+          <div className="r-compare" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', border: '1px solid rgba(245,244,241,0.1)' }}>
+            <div style={{ padding: '18px 28px', borderBottom: '2px solid rgba(245,244,241,0.15)', borderRight: '1px solid rgba(245,244,241,0.1)' }}>
+              <div style={{ ...mono, fontSize: '9px', color: 'rgba(245,244,241,0.4)' }}>Lo que hace el mercado · The market</div>
+            </div>
+            <div style={{ padding: '18px 28px', borderBottom: '2px solid #D72631' }}>
+              <div style={{ ...mono, fontSize: '9px', color: '#D72631' }}>Lo que falta · What's missing</div>
+            </div>
+            {problema.map((row, i) => (
+              <React.Fragment key={i}>
+                <div style={{ padding: '18px 28px', borderBottom: i < problema.length-1 ? '1px solid rgba(245,244,241,0.07)' : 'none', borderRight: '1px solid rgba(245,244,241,0.07)' }}>
+                  <div style={{ fontFamily: "'Manrope', sans-serif", fontSize: '14px', color: 'rgba(245,244,241,0.4)', lineHeight: 1.5, textDecoration: 'line-through', textDecorationColor: 'rgba(245,244,241,0.2)' }}>{row[0]}</div>
+                </div>
+                <div style={{ padding: '18px 28px', borderBottom: i < problema.length-1 ? '1px solid rgba(245,244,241,0.07)' : 'none', backgroundColor: 'rgba(245,244,241,0.02)' }}>
+                  <div style={{ fontFamily: "'Manrope', sans-serif", fontSize: '14px', fontWeight: 600, color: '#F5F4F1', lineHeight: 1.5 }}>{row[1]}</div>
+                </div>
+              </React.Fragment>
+            ))}
+          </div>
+          <div style={{ ...mono, fontSize: '11px', color: 'rgba(245,244,241,0.35)', letterSpacing: '0.08em', marginTop: '24px', textTransform: 'none' }}>
+            Producir más rápido dejó de ser ventaja. Coordinar mejor sí lo es.
+          </div>
+        </div>
+
+        {/* ── C · LAS 3 MECÁNICAS (ancla) ── */}
+        <div style={{ marginTop: 'clamp(64px, 9vw, 120px)' }}>
+          <div style={{ ...mono, fontSize: '10px', color: '#D72631', marginBottom: '20px' }}>El sistema · The System</div>
+          <h3 style={{
+            fontFamily: "'Space Grotesk', sans-serif",
+            fontSize: 'clamp(26px, 3.6vw, 44px)', fontWeight: 700,
+            letterSpacing: '-0.02em', lineHeight: 1.1, color: '#F5F4F1', margin: '0 0 48px 0', maxWidth: '22ch',
+          }}>
+            Tres mecánicas que no existen juntas en ningún otro lado.
+          </h3>
+          <div className="r-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', backgroundColor: 'rgba(245,244,241,0.07)' }}>
+            {mecanicas.map((m) => (
+              <div key={m.num} style={{ backgroundColor: cardBg, padding: '40px 32px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                <div style={{ ...mono, fontSize: '11px', fontWeight: 700, color: '#D72631' }}>{m.num}</div>
+                <MoveLabel es={m.es} en={m.en} />
+                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '22px', fontStyle: 'italic', color: 'rgba(245,244,241,0.7)', lineHeight: 1.3 }}>{m.claim}</div>
+              </div>
+            ))}
+          </div>
+          <div style={{ marginTop: '32px', paddingTop: '24px', borderTop: '1px solid rgba(245,244,241,0.08)' }}>
+            <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 'clamp(16px, 1.8vw, 20px)', fontWeight: 600, color: '#F5F4F1' }}>
+              Inteligencia decide. Personajes ejecutan. Primeros minutos enmarcan.
+            </div>
+            <div style={{ ...mono, fontSize: '11px', color: 'rgba(245,244,241,0.35)', letterSpacing: '0.08em', marginTop: '6px' }}>
+              Intelligence decides. Characters execute. The first minutes frame everything.
+            </div>
+          </div>
+        </div>
+
+        {/* ── D · MECÁNICA 01 · RUTEO ── */}
+        <div style={{ marginTop: 'clamp(64px, 9vw, 120px)' }}>
+          <div style={{ ...mono, fontSize: '10px', color: '#D72631', marginBottom: '20px' }}>Mecánica 01 · Mechanic 01</div>
+          <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 'clamp(24px, 3.2vw, 38px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, color: '#F5F4F1', margin: '0 0 16px 0', maxWidth: '18ch' }}>
+            No distribuimos posts. Distribuimos rutas narrativas.
+          </h3>
+          <BodyText style={{ maxWidth: '620px', marginBottom: '40px' }}>
+            Un tema = múltiples rutas. La IA decide qué combinación se necesita para que la narrativa se digiera.
+          </BodyText>
+          <div className="r-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', backgroundColor: 'rgba(245,244,241,0.07)', borderTop: '1px solid rgba(245,244,241,0.07)' }}>
+            {rutas.map((r, i) => (
+              <div key={i} style={{ backgroundColor: cardBg, padding: '32px 24px' }}>
+                <div style={{ width: '24px', height: '3px', backgroundColor: r.c, marginBottom: '20px' }} />
+                <MoveLabel es={r.es} en={r.en} />
+                <div style={{ fontFamily: "'Manrope', sans-serif", fontSize: '13px', color: 'rgba(245,244,241,0.55)', lineHeight: 1.6, marginTop: '12px' }}>{r.desc}</div>
+              </div>
+            ))}
+          </div>
+          <div style={{ ...mono, fontSize: '11px', color: 'rgba(245,244,241,0.35)', letterSpacing: '0.08em', marginTop: '24px', textTransform: 'none' }}>
+            No empujamos contenido. Activamos rutas. Cada ruta tiene su voz, su plataforma y su momento.
+          </div>
+        </div>
+
+        {/* ── E · MECÁNICA 02 · STORYWORLD ── */}
+        <div style={{ marginTop: 'clamp(64px, 9vw, 120px)' }}>
+          <div style={{ ...mono, fontSize: '10px', color: '#D72631', marginBottom: '20px' }}>Mecánica 02 · Mechanic 02</div>
+          <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 'clamp(24px, 3.2vw, 38px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, color: '#F5F4F1', margin: '0 0 16px 0', maxWidth: '18ch' }}>
+            Cada cuenta es un personaje. El sistema dirige la obra.
+          </h3>
+          {/* Governance line — visible */}
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', border: '1px solid rgba(74,222,128,0.25)', background: 'rgba(74,222,128,0.04)', borderRadius: '2px', padding: '8px 14px', marginBottom: '40px' }}>
+            <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#4ADE80', flexShrink: 0 }} />
+            <span style={{ ...mono, fontSize: '10px', color: 'rgba(245,244,241,0.7)', letterSpacing: '0.1em' }}>Red de personas reales con audiencias propias — no bots, no granjas</span>
+          </div>
+          <div className="r-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', backgroundColor: 'rgba(245,244,241,0.07)' }}>
+            {personajes.map((p, i) => (
+              <div key={i} style={{ backgroundColor: cardBg, padding: '32px 28px' }}>
+                <MoveLabel es={p.es} en={p.en} />
+                <div style={{ fontFamily: "'Manrope', sans-serif", fontSize: '13px', color: 'rgba(245,244,241,0.55)', lineHeight: 1.6, marginTop: '12px' }}>{p.desc}</div>
+              </div>
+            ))}
+          </div>
+          <div style={{ ...mono, fontSize: '11px', color: 'rgba(245,244,241,0.35)', letterSpacing: '0.06em', marginTop: '24px', textTransform: 'none', lineHeight: 1.7 }}>
+            El sistema decide quién entra primero, quién remata, quién se queda en comentarios, quién migra de TikTok a X, quién a Facebook.
+          </div>
+        </div>
+
+        {/* ── F · MECÁNICA 03 · PRIMEROS MINUTOS ── */}
+        <div style={{ marginTop: 'clamp(64px, 9vw, 120px)' }}>
+          <div style={{ ...mono, fontSize: '10px', color: '#D72631', marginBottom: '20px' }}>Mecánica 03 · Mechanic 03</div>
+          <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 'clamp(24px, 3.2vw, 38px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, color: '#F5F4F1', margin: '0 0 16px 0', maxWidth: '22ch' }}>
+            Los primeros 15 minutos definen cómo se lee el resto.
+          </h3>
+          <div style={{ ...mono, fontSize: '12px', color: 'rgba(245,244,241,0.4)', letterSpacing: '0.1em', marginBottom: '44px' }}>First Minutes Command</div>
+          <div className="r-timeline" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', backgroundColor: 'rgba(245,244,241,0.07)', borderTop: '2px solid #D72631' }}>
+            {timeline.map((tl, i) => (
+              <div key={i} style={{ backgroundColor: cardBg, padding: '28px 24px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <span style={{ width: '9px', height: '9px', borderRadius: '50%', backgroundColor: '#D72631', flexShrink: 0 }} />
+                  <span style={{ ...mono, fontSize: '12px', fontWeight: 700, color: '#F5F4F1', letterSpacing: '0.12em' }}>{tl.t}</span>
+                </div>
+                <div style={{ fontFamily: "'Manrope', sans-serif", fontSize: '14px', color: '#F5F4F1', lineHeight: 1.5, fontWeight: 500 }}>{tl.es}</div>
+                <div style={{ ...mono, fontSize: '9px', color: 'rgba(245,244,241,0.35)', letterSpacing: '0.1em', marginTop: 'auto' }}>{tl.en}</div>
+              </div>
+            ))}
+          </div>
+          <div style={{ ...mono, fontSize: '11px', color: 'rgba(245,244,241,0.35)', letterSpacing: '0.06em', marginTop: '24px', textTransform: 'none' }}>
+            No es alcance. Es coreografía. Cuentas reales, ya en tu ecosistema, sincronizadas.
+          </div>
+        </div>
+
+        {/* ── G · LO QUE NO ES (gobernanza) ── */}
+        <div style={{ marginTop: 'clamp(64px, 9vw, 120px)' }}>
+          <div style={{ ...mono, fontSize: '10px', color: '#D72631', marginBottom: '20px' }}>Límite · Boundary</div>
+          <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 'clamp(26px, 3.6vw, 44px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, color: '#F5F4F1', margin: '0 0 40px 0' }}>
+            Lo que esto <em style={{ color: '#D72631', fontStyle: 'normal' }}>NO</em> es.
+          </h3>
+          <div style={{ border: '1px solid rgba(245,244,241,0.1)' }}>
+            {noEs.map((row, i) => (
+              <div key={i} className="r-compare" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', borderBottom: i < noEs.length-1 ? '1px solid rgba(245,244,241,0.07)' : 'none' }}>
+                <div style={{ padding: '20px 28px', borderRight: '1px solid rgba(245,244,241,0.07)' }}>
+                  <div style={{ ...mono, fontSize: '8px', color: 'rgba(245,244,241,0.3)', marginBottom: '6px' }}>No es · Not this</div>
+                  <div style={{ fontFamily: "'Manrope', sans-serif", fontSize: '14px', color: 'rgba(245,244,241,0.4)', lineHeight: 1.4, textDecoration: 'line-through', textDecorationColor: 'rgba(245,244,241,0.2)' }}>{row[0]} <span style={{ color: 'rgba(245,244,241,0.25)', textDecoration: 'none' }}>· {row[1]}</span></div>
+                </div>
+                <div style={{ padding: '20px 28px', backgroundColor: 'rgba(215,38,49,0.03)' }}>
+                  <div style={{ ...mono, fontSize: '8px', color: '#D72631', marginBottom: '6px' }}>Es · But this</div>
+                  <div style={{ fontFamily: "'Manrope', sans-serif", fontSize: '14px', fontWeight: 600, color: '#F5F4F1', lineHeight: 1.4 }}>{row[2]} <span style={{ ...mono, fontSize: '9px', color: 'rgba(245,244,241,0.4)', fontWeight: 400 }}>· {row[3]}</span></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── H · CTA a página futura ── */}
+        <div style={{ marginTop: 'clamp(56px, 7vw, 96px)', paddingTop: '40px', borderTop: '1px solid rgba(245,244,241,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '24px', flexWrap: 'wrap' }}>
+          <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(20px, 2.4vw, 28px)', fontStyle: 'italic', color: 'rgba(245,244,241,0.6)', maxWidth: '24ch' }}>
+            Esto es solo la mecánica. La operación completa se ve adentro.
+          </div>
+          <a href="#cierre" className="r-move-cta" style={{
+            ...mono, fontSize: '11px', color: '#F5F1EB',
+            display: 'inline-flex', alignItems: 'center', gap: '10px',
+            border: '1px solid rgba(245,241,235,0.35)', padding: '15px 30px',
+            textDecoration: 'none', letterSpacing: '0.12em', flexShrink: 0,
+            lineHeight: 1.5,
+            transition: 'background 0.2s ease, color 0.2s ease',
+          }}
+            onMouseOver={e => { e.currentTarget.style.backgroundColor = '#F5F1EB'; e.currentTarget.style.color = '#0A0A0A'; }}
+            onMouseOut={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#F5F1EB'; }}
+          >
+            Ver la metodología completa · See the full methodology →
+          </a>
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
 /* ─── Section 6: DIFERENCIADOR ─── */
 function SecDiferenciador() {
   const rows = [
@@ -697,7 +966,7 @@ function Footer() {
 
 Object.assign(window, {
   SecProblema, SecSolucion, SecSistema, SecCaso,
-  SecAmplificacion,
+  SecAmplificacion, SecMove,
   SecDiferenciador, SecEntregables, SecEscalabilidad,
   SecEquipo, SecCierre, Footer,
   Eyebrow, SectionHeadline, BodyText, Wrapper, Divider,
