@@ -814,6 +814,107 @@ function SecMoveTeaser() {
   );
 }
 
+/* ─── R.O.O.M phase page (OBSERVE / OWN) ─── */
+function RoomPhase({ capa, titleEs, titleEm, titleEn, intro, cards, caption, next }) {
+  const mono = { fontFamily: "'JetBrains Mono', monospace", letterSpacing: '0.15em', textTransform: 'uppercase' };
+  return (
+    <section className="r-section" style={{
+      backgroundColor: '#0A0A0A',
+      padding: 'clamp(96px, 11vw, 150px) clamp(24px, 6vw, 80px) clamp(80px, 10vw, 140px)',
+    }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ ...mono, fontSize: '10px', color: '#D72631', marginBottom: '28px' }}>{capa}</div>
+        <h1 style={{
+          fontFamily: "'Cormorant Garamond', serif",
+          fontSize: 'clamp(38px, 6vw, 72px)', fontWeight: 500,
+          lineHeight: 1.04, letterSpacing: '-0.015em', color: '#F5F4F1',
+          margin: '0 0 20px 0', maxWidth: '16ch',
+        }}>
+          {titleEs} <em style={{ color: '#D72631', fontStyle: 'italic' }}>{titleEm}</em>
+        </h1>
+        <div style={{ ...mono, fontSize: '12px', color: 'rgba(245,244,241,0.4)', letterSpacing: '0.1em', marginBottom: '32px' }}>{titleEn}</div>
+        <BodyText style={{ maxWidth: '640px' }}>{intro}</BodyText>
+
+        <div className="r-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', backgroundColor: 'rgba(245,244,241,0.07)', borderTop: '1px solid rgba(245,244,241,0.07)', marginTop: 'clamp(48px, 7vw, 80px)' }}>
+          {cards.map((c, i) => (
+            <div key={i} style={{ backgroundColor: '#0A0A0A', padding: '36px 28px' }}>
+              <div style={{ ...mono, fontSize: '11px', fontWeight: 700, color: '#D72631', marginBottom: '20px' }}>{String(i + 1).padStart(2, '0')}</div>
+              <MoveLabel es={c.es} en={c.en} />
+              <div style={{ fontFamily: "'Manrope', sans-serif", fontSize: '13px', color: 'rgba(245,244,241,0.55)', lineHeight: 1.65, marginTop: '12px' }}>{c.desc}</div>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ ...mono, fontSize: '11px', color: 'rgba(245,244,241,0.35)', letterSpacing: '0.06em', marginTop: '24px', textTransform: 'none' }}>{caption}</div>
+
+        {/* Flow nav */}
+        <div style={{ marginTop: 'clamp(56px, 7vw, 96px)', paddingTop: '40px', borderTop: '1px solid rgba(245,244,241,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '24px', flexWrap: 'wrap' }}>
+          <a href="index.html#cierre" className="r-move-cta" style={{
+            ...mono, fontSize: '11px', color: '#0A0A0A', backgroundColor: '#F5F1EB',
+            display: 'inline-flex', alignItems: 'center', gap: '10px',
+            border: '1px solid #F5F1EB', padding: '15px 30px',
+            textDecoration: 'none', letterSpacing: '0.12em', lineHeight: 1.5,
+            transition: 'opacity 0.2s ease',
+          }}
+            onMouseOver={e => e.currentTarget.style.opacity = '0.85'}
+            onMouseOut={e => e.currentTarget.style.opacity = '1'}
+          >Solicitar acceso a la sala · Request access →</a>
+          {next && (
+            <a href={next.href} style={{
+              ...mono, fontSize: '11px', color: 'rgba(245,241,235,0.55)',
+              textDecoration: 'none', letterSpacing: '0.12em',
+              display: 'inline-flex', alignItems: 'center', gap: '8px',
+            }}
+              onMouseOver={e => e.currentTarget.style.color = '#F5F1EB'}
+              onMouseOut={e => e.currentTarget.style.color = 'rgba(245,241,235,0.55)'}
+            >Siguiente · Next: {next.label} →</a>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SecObserve() {
+  return (
+    <RoomPhase
+      capa="Capa 02 · OBSERVE"
+      titleEs="Detectar no es entender."
+      titleEm="OBSERVE convierte señal en sentido."
+      titleEn="Detection isn't understanding. OBSERVE turns signal into meaning."
+      intro="El RADAR encuentra la conversación. OBSERVE la lee: qué significa, hacia dónde va, quién la mueve y cuánto tiempo tienes antes de que se instale."
+      cards={[
+        { es: 'Lectura de emoción', en: 'Emotion read', desc: 'Indignación, miedo, orgullo, esperanza. La emoción decide cómo y cuán rápido se propaga.' },
+        { es: 'Mapa de actores', en: 'Actor map', desc: 'Quién mueve la conversación: medios, cuentas, comunidades. Dónde está el centro de gravedad.' },
+        { es: 'Ventana de tiempo', en: 'Time window', desc: 'Cuánto tiempo tienes antes de que la narrativa se instale. La ventana define la urgencia.' },
+        { es: 'Riesgo narrativo', en: 'Narrative risk', desc: 'Qué encuadre adverso está en formación temprana — todavía pequeño, todavía desmontable.' },
+      ]}
+      caption="No es escuchar más fuerte. Es entender qué significa antes que nadie."
+      next={{ href: 'own.html', label: 'OWN' }}
+    />
+  );
+}
+
+function SecOwn() {
+  return (
+    <RoomPhase
+      capa="Capa 03 · OWN"
+      titleEs="No reacciones."
+      titleEm="Apropia la narrativa."
+      titleEn="Don't react. Own the narrative."
+      intro="OWN decide qué historia te corresponde contar y por qué te corresponde a ti contarla. De la indignación ajena al encuadre propio, respaldado con hechos."
+      cards={[
+        { es: 'Encuadre propio', en: 'Own frame', desc: 'La historia que te corresponde contar, y la razón por la que te toca a ti contarla.' },
+        { es: 'Datos verificables', en: 'Verifiable data', desc: 'No es opinión contra opinión. Es demostración con evidencia que el adversario no puede negar.' },
+        { es: 'Acción visible', en: 'Visible action', desc: 'Apropiar no es hablar: es mostrar una decisión concreta que respalda el mensaje.' },
+        { es: 'Autoridad moral', en: 'Moral authority', desc: 'Reconocer antes de explicar. La credibilidad se gana asumiendo, no evadiendo.' },
+      ]}
+      caption="No es disculpa. Es demostración. El que asume con datos define el encuadre."
+      next={{ href: 'move.html', label: 'MOVE' }}
+    />
+  );
+}
+
 /* ─── Section 6: DIFERENCIADOR ─── */
 function SecDiferenciador() {
   const rows = [
@@ -1027,6 +1128,7 @@ function Footer() {
 Object.assign(window, {
   SecProblema, SecSolucion, SecSistema, SecCaso,
   SecAmplificacion, SecMove, SecMoveTeaser,
+  RoomPhase, SecObserve, SecOwn,
   SecDiferenciador, SecEntregables, SecEscalabilidad,
   SecEquipo, SecCierre, Footer,
   Eyebrow, SectionHeadline, BodyText, Wrapper, Divider,
