@@ -681,6 +681,25 @@ function SecMove() {
           <div style={{ ...mono, fontSize: '11px', color: 'rgba(245,244,241,0.35)', letterSpacing: '0.06em', marginTop: '24px', textTransform: 'none', lineHeight: 1.7 }}>
             El sistema decide quién entra primero, quién remata, quién se queda en comentarios, quién migra de TikTok a X, quién a Facebook.
           </div>
+
+          {/* La red — escala, sincronía y trazabilidad */}
+          <div style={{ marginTop: 'clamp(40px, 6vw, 64px)' }}>
+            <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 'clamp(18px, 2vw, 24px)', fontWeight: 700, color: '#F5F4F1', letterSpacing: '-0.01em', marginBottom: '24px' }}>
+              No publicamos en una cuenta. <span style={{ color: '#D72631' }}>Activamos cientos.</span>
+            </div>
+            <div className="r-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', backgroundColor: 'rgba(245,244,241,0.07)' }}>
+              {[
+                { es: 'Cientos de cuentas', en: 'Activable network', desc: 'Audiencias reales pre-construidas en verticales — farándula, deportes, entretenimiento, lifestyle. Comunidades con engagement orgánico activo.' },
+                { es: 'Activación simultánea', en: 'Simultaneous activation', desc: 'La narrativa se siembra al mismo tiempo en decenas o cientos de cuentas, según la intensidad que la misión requiera. Saturación controlada, no spam.' },
+                { es: 'Trazabilidad completa', en: 'Full traceability', desc: 'De la activación al impacto narrativo. Cada movimiento documentado: qué cuenta movió qué conversación.' },
+              ].map((c, i) => (
+                <div key={i} style={{ backgroundColor: cardBg, padding: '32px 28px' }}>
+                  <MoveLabel es={c.es} en={c.en} />
+                  <div style={{ fontFamily: "'Manrope', sans-serif", fontSize: '13px', color: 'rgba(245,244,241,0.55)', lineHeight: 1.6, marginTop: '12px' }}>{c.desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* ── F · MECÁNICA 03 · PRIMEROS MINUTOS ── */}
