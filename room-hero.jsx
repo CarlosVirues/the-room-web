@@ -81,8 +81,8 @@ function Hero({ onCtaClick }) {
           El sistema operativo que anticipa el ciclo de noticias y ejecuta en horas — no en días.
         </p>
 
-        {/* Single CTA */}
-        <div>
+        {/* CTAs */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
           <button
             onClick={() => onCtaClick && onCtaClick('demo')}
             style={{
@@ -106,6 +106,24 @@ function Hero({ onCtaClick }) {
           >
             Solicitar acceso →
           </button>
+          <a
+            href="mundial.html"
+            style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase',
+              color: 'rgba(245,241,235,0.7)', textDecoration: 'none',
+              display: 'inline-flex', alignItems: 'center', gap: '10px',
+              padding: '11px 18px',
+              border: '1px solid rgba(215,38,49,0.35)',
+              background: 'rgba(215,38,49,0.06)',
+              transition: 'color 0.2s ease, border-color 0.2s ease, background 0.2s ease',
+            }}
+            onMouseOver={e => { e.currentTarget.style.color = '#F5F1EB'; e.currentTarget.style.borderColor = '#D72631'; e.currentTarget.style.background = 'rgba(215,38,49,0.14)'; }}
+            onMouseOut={e => { e.currentTarget.style.color = 'rgba(245,241,235,0.7)'; e.currentTarget.style.borderColor = 'rgba(215,38,49,0.35)'; e.currentTarget.style.background = 'rgba(215,38,49,0.06)'; }}
+          >
+            <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#E63946', animation: 'roomPulse 1.8s ease-in-out infinite' }} />
+            Mundial Edition · Live →
+          </a>
         </div>
 
         {/* Scroll indicator — bottom left */}

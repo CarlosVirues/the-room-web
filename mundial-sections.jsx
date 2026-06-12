@@ -114,6 +114,21 @@ function fmtAbsolute(iso) {
   return d.toLocaleString('es-EC', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false });
 }
 
+function FeedImage({ src, alt }) {
+  if (!src) return null;
+  return (
+    <figure style={{ marginTop: '18px', position: 'relative' }}>
+      <img
+        src={src}
+        alt={alt || ''}
+        style={{ display: 'block', width: '100%', height: 'auto', maxHeight: '460px', objectFit: 'cover', borderRadius: '2px', border: '1px solid rgba(245,244,241,0.08)' }}
+        onError={(ev) => { ev.currentTarget.style.display = 'none'; }}
+      />
+      {alt && <figcaption style={{ ...monoMu, fontSize: '9px', color: 'rgba(245,244,241,0.4)', marginTop: '10px', textTransform: 'none', letterSpacing: '0.1em' }}>{alt}</figcaption>}
+    </figure>
+  );
+}
+
 function FeedEntryMision({ e }) {
   return (
     <article style={{
@@ -137,6 +152,7 @@ function FeedEntryMision({ e }) {
           ))}
         </div>
       )}
+      <FeedImage src={e.image} alt={e.image_alt} />
     </article>
   );
 }
@@ -153,6 +169,7 @@ function FeedEntryNota({ e }) {
       </header>
       {e.title && <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(20px, 2.4vw, 28px)', fontStyle: 'italic', fontWeight: 500, color: '#F5F4F1', lineHeight: 1.25, marginBottom: '12px' }}>{e.title}</div>}
       {e.body && <div style={{ fontFamily: "'Manrope', sans-serif", fontSize: '15px', color: 'rgba(245,244,241,0.7)', lineHeight: 1.7 }}>{e.body}</div>}
+      <FeedImage src={e.image} alt={e.image_alt} />
     </article>
   );
 }
@@ -182,6 +199,7 @@ function FeedEntryPartido({ e }) {
           </div>
         ))}
       </div>
+      <FeedImage src={e.image} alt={e.image_alt} />
     </article>
   );
 }
