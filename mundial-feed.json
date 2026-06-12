@@ -1,0 +1,38 @@
+{
+  "updated": "2026-06-12T14:30:00-05:00",
+  "entries": [
+    {
+      "type": "partido",
+      "timestamp": "2026-06-11T22:00:00-05:00",
+      "match": "ECU 2 — 1 ARG",
+      "stage": "Fase de grupos · Jornada 1",
+      "detected": "11 narrativas detectadas · 4 misiones activadas",
+      "winner": "El cántico del minuto 78 viajó más que el gol decisivo",
+      "speed": "Del gol a la pieza: 14 min"
+    },
+    {
+      "type": "nota",
+      "timestamp": "2026-06-11T20:15:00-05:00",
+      "title": "Lo no obvio gana",
+      "body": "La conversación más viral del partido no fue el gol — fue el cántico del minuto 78. Lección: las marcas que ven solo lo obvio publican lo que ya vio todo el mundo."
+    },
+    {
+      "type": "mision",
+      "timestamp": "2026-06-11T19:23:00-05:00",
+      "match": "ECU vs ARG",
+      "minute": "23'",
+      "title": "Gol de Ecuador",
+      "angle": "Surf de orgullo nacional con tono editorial — no celebrar, narrar",
+      "tags": ["pride", "surprise", "verified"]
+    },
+    {
+      "type": "mision",
+      "timestamp": "2026-06-11T18:45:00-05:00",
+      "match": "ECU vs ARG",
+      "minute": "Pre · -2h",
+      "title": "Tensión Quito-Buenos Aires en X",
+      "angle": "Empatía + humor: defender lo nuestro sin atacar al otro",
+      "tags": ["rivalry", "arousal"]
+    }
+  ]
+}
